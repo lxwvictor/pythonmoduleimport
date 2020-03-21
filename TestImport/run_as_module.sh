@@ -1,0 +1,1 @@
+python -m testimport.main
