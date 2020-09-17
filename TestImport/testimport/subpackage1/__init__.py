@@ -1,1 +1,1 @@
-print('I am from subpackage1/__init__.py')
+print('I am from testimport/subpackage1/__init__.py')

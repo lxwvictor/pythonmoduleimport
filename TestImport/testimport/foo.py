@@ -1,1 +1,1 @@
-print('Loaded foo.py')
+print('I am from testimport/foo.py')
