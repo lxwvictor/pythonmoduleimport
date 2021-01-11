@@ -4,14 +4,14 @@ print('__package__:', __package__)
 print('CWD is %s' % os.getcwd())
 # print('sys.path is %s' % sys.path)
 if __package__ is None:
-    # uses current directory visibility
-    print('Loaded as script, e.g, python testimport/main.py, or python main.py, python visibiity limits within in the script\'s parent DIRECTORY, absolute import is based on the directory visibility, unable to perform relative import\n')
+    # uses current directory visibility, exclude the directory itself, hence no relative import
+    print('Loaded as script, e.g, `python testimport/main.py`, or `python main.py`, python visibility limits WITHIN but exclude the script\'s parent DIRECTORY (`testimport`). Absolute import is based on the (within) directory visibility, unable to perform relative import. `__package__: None`\n')
 elif __package__ == '':
-    # uses current directory visibility
-    print('Loaded as top level "module", e.g, python -m main, visibility limits within current DIRECTORY, absolute import is based on the directory visibility, unable to perform relative import\n')
+    # uses current directory visibility, exclude the directory itself, hence no relative import
+    print('Loaded as top level "module", e.g, `python -m main`, visibility limits WITHIN but exclude current DIRECTORY (`testimport`). Absolute import is based on the (within) directory visibility, unable to perform relative import. `__package__:`\n')
 else:
     # uses current package visibility
-    print('Loaded as part of a package, e.g, python -m testimport.main, visibility available to current PACKAGE, use absolute import by specifying package full path, or use "." for relative import\n')
+    print('Loaded as part of a package, e.g, `python -m testimport.main`, visibility available to current PACKAGE (`testimport`), use absolute import by specifying package full path, or use `.` for relative import. `__package__: testimport`\n')
 
 try:
     import foo
